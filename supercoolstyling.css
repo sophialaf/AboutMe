@@ -1,0 +1,94 @@
+
+        .Heading {
+            background-color: rgba(137, 0, 89, 0.514);
+            color: white;
+            border: 2px solid rgb(255, 153, 236);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .Origin_story{
+            background-color: rgba(112, 0, 137, 0.514);
+            color: white;
+            border: 2px solid rgb(255, 153, 236);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .Hobbies{
+            background-color: rgba(50, 0, 137, 0.514);
+            color: white;
+            border: 2px solid rgb(255, 153, 236);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            font-family: brush script mt, cursive;
+        }
+        .Sites{
+            background-color: rgba(0, 50, 137, 0.514);
+            color: white;
+            border: 2px solid rgb(255, 153, 236);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(119, 255, 210);
+            background-color: rgb(0, 0, 0);
+            opacity: .5;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: bradley hand, cursive;
+            color: rgb(255, 253, 252);
+        }
+
+        ul {
+            text-align: justify;
+            color: azure;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 400px;
+            height: 200px;
+        }
+
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: lightblue;
+        }
+
+        .topnav {
+            background-color: rgb(0, 91, 109);
+            overflow: hidden;
+        }
+
+        .topnav a {
+            float: left;
+            color: #cbffce;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover {
+            background-color: rgb(255, 164, 200);
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #fff700;
+            color: rgb(0, 0, 0);
+        }
+    
