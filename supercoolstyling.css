@@ -1,94 +1,118 @@
+.General_chunk {
+    background-color: rgba(137, 0, 89, 0.514);
+    color: white;
+    border: 2px solid rgb(255, 153, 236);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
 
-        .Heading {
-            background-color: rgba(137, 0, 89, 0.514);
-            color: white;
-            border: 2px solid rgb(255, 153, 236);
-            margin: 20px;
-            padding: 20px;
-            text-align: center;
-        }
-        .Origin_story{
-            background-color: rgba(112, 0, 137, 0.514);
-            color: white;
-            border: 2px solid rgb(255, 153, 236);
-            margin: 20px;
-            padding: 20px;
-            text-align: center;
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-        .Hobbies{
-            background-color: rgba(50, 0, 137, 0.514);
-            color: white;
-            border: 2px solid rgb(255, 153, 236);
-            margin: 20px;
-            padding: 20px;
-            text-align: center;
-            font-family: brush script mt, cursive;
-        }
-        .Sites{
-            background-color: rgba(0, 50, 137, 0.514);
-            color: white;
-            border: 2px solid rgb(255, 153, 236);
-            margin: 20px;
-            padding: 20px;
-            text-align: center;
-        }
+.Origin_story {
+    background-color: rgba(112, 0, 137, 0.514);
+    color: white;
+    border: 2px solid rgb(255, 153, 236);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
-        h1 {
-            text-align: center;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: rgb(119, 255, 210);
-            background-color: rgb(0, 0, 0);
-            opacity: .5;
-        }
+.Hobbies {
+    background-color: rgba(50, 0, 137, 0.514);
+    color: white;
+    border: 2px solid rgb(255, 153, 236);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-family: brush script mt, cursive;
+}
 
-        h2 {
-            text-align: center;
-            font-family: bradley hand, cursive;
-            color: rgb(255, 253, 252);
-        }
+.Sites {
+    background-color: rgba(0, 50, 137, 0.514);
+    color: white;
+    border: 2px solid rgb(255, 153, 236);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+}
 
-        ul {
-            text-align: justify;
-            color: azure;
-        }
+h1 {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(119, 255, 210);
+    background-color: rgb(0, 0, 0);
+    opacity: .5;
+}
 
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 400px;
-            height: 200px;
-        }
+h2 {
+    text-align: center;
+    font-family: bradley hand, cursive;
+    color: rgb(255, 253, 252);
+}
 
-        iframe {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: lightblue;
-        }
+ul {
+    text-align: justify;
+    color: azure;
+}
 
-        .topnav {
-            background-color: rgb(0, 91, 109);
-            overflow: hidden;
-        }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 200px;
+}
 
-        .topnav a {
-            float: left;
-            color: #cbffce;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightblue;
+}
 
-        .topnav a:hover {
-            background-color: rgb(255, 164, 200);
-            color: black;
-        }
+.topnav {
+    background-color: rgb(0, 91, 109);
+    overflow: hidden;
+}
 
-        .topnav a.active {
-            background-color: #fff700;
-            color: rgb(0, 0, 0);
-        }
-    
+.topnav a {
+    float: left;
+    color: #cbffce;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: rgb(255, 164, 200);
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #fff700;
+    color: rgb(0, 0, 0);
+}
+
+ul {
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+    color: lightsteelblue;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,th {
+    border: 1px solid #ffe96ab8;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #fe8ccd9a;
+}
