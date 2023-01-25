@@ -5,6 +5,11 @@
     margin: 20px;
     padding: 20px;
     text-align: center;
+    background-color: red;
+    position: relative;
+    animation-name: moveAndChange;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 .Origin_story {
@@ -39,8 +44,7 @@
 h1 {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(119, 255, 210);
-    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255); 
     opacity: .5;
 }
 
@@ -107,7 +111,8 @@ table {
     width: 100%;
 }
 
-td,th {
+td,
+th {
     border: 1px solid #ffe96ab8;
     text-align: left;
     padding: 8px;
@@ -115,4 +120,112 @@ td,th {
 
 tr:nth-child(even) {
     background-color: #fe8ccd9a;
+}
+
+.blink {
+    animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinkFaster {
+    animation: blink .3s steps(1, end) infinite;
+}
+
+@keyframes blinkFaster {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: red;
+    }
+
+    10% {
+        background-color: rgb(255, 237, 71);
+    }
+
+    20% {
+        background-color: #c480ff;
+    }
+
+    30% {
+        background-color: chartreuse;
+    }
+
+    40% {
+        background-color: darkblue;
+    }
+
+    50% {
+        background-color: magenta;
+    }
+
+    60% {
+        background-color: seagreen;
+    }
+
+    70% {
+        background-color: springgreen;
+    }
+
+    80% {
+        background-color: tomato;
+    }
+
+    90% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: violet;
+    }
+}
+
+@keyframes moveAndChange {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+.blinkFastest {
+    animation: blink .1s steps(1, end) infinite;
+}
+
+@keyframes blinkFaster {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
