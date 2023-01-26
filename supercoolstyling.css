@@ -44,7 +44,7 @@
 h1 {
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(255, 255, 255); 
+    color: rgb(255, 255, 255);
     opacity: .5;
 }
 
@@ -205,11 +205,35 @@ tr:nth-child(even) {
 }
 
 @keyframes moveAndChange {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
 }
 
 .blinkFastest {
@@ -226,6 +250,99 @@ tr:nth-child(even) {
     }
 
     100% {
+        opacity: 1;
+    }
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
         opacity: 1;
     }
 }
