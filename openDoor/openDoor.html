@@ -4,14 +4,22 @@
 <head>
     <!-- <meta> charset="utf-8"</meta> -->
     <title> Open! That! Door! </title>
-    <!--link rel="stylesheet" href="goodPage.css"-->
+    <link rel="stylesheet" href="makeItPretty.css">
+    <script src="openTheDoor.js"></script>
 </head>
 
-<body>
-<button id="butt1" onclick="openDoor(1)">1</button>
-<!--button id="butt2" onclick="openDoor(2)">2</button>
-<button id="butt3" onclick="openDoor(3)">3</button-->
-
-<img src="openDoor/closedDoor.jpg" id="doorPic">
-
+<body style="background-color:rgb(255, 190, 224)">
+    <div>
+        <h1 class="general">This is a test.</h1>
+        <h2 id="butts" class="general"> Let's see if you pass. </h2>
+    </div>
+    <div class="buttons">
+        <button class="button" id="butt1" onclick="openDoor(1)">Sophie</button>
+        <button class="button" id="butt2" onclick="openDoor(2)">is</button>
+        <button class="button" id="butt3" onclick="openDoor(3)">Awesome</button>
+        <button class="button" onclick="imNotStinky()"> Stinky</button>
+    </div>
+    <div>
+    <img src="closedDoor.jpeg" id="doorPic" alt="closed door">
+    </div>
 </body>

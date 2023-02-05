@@ -1,0 +1,31 @@
+.general {
+    text-align: center;
+    font-family: fantasy;
+    margin: 30px;
+}
+
+.button {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(0, 0, 0);
+    background-color: aqua;
+    border-width: 5px;
+    border-color: blue;
+}
+
+.buttons {
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#doorPic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+}
