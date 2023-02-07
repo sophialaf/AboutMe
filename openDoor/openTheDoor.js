@@ -1,7 +1,7 @@
 let clickedOne = false, clickedTwo = false, clickedThree = false;
 
 function openDoor(input) {
-    if (input == 1) {
+    if (input == 1 ) {
         firstInput();
     }
     if (input == 2) {
@@ -13,6 +13,7 @@ function openDoor(input) {
 }
 function closeDoorTimeout() {
     timeout = setTimeout(closeDoorAgain, 5000);
+    clickedOne = false, clickedTwo = false, clickedThree = false;
 }
 
 function firstInput() {
@@ -29,22 +30,23 @@ function secondInput() {
         clickedTwo = false;
         clickedThree = false;
     }
+    clickedOne = false;
 }
 function thirdInput() {
-    if (clickedOne) {
-        if (clickedTwo) {
-            document.getElementById("doorPic").src = "openedDoor.jpeg";
-            document.getElementById('butts').innerText="You bet I am.";
-            closeDoorTimeout();
-            clickedOne = false;
-            clickedTwo = false;
-            clickedThree = false;
-        }
-    } else {
+    if (clickedTwo) {
+        document.getElementById("doorPic").src = "openedDoor.jpeg";
+        document.getElementById('butts').innerText="You bet I am.";
+        closeDoorTimeout();
         clickedOne = false;
         clickedTwo = false;
         clickedThree = false;
     }
+    else {
+        clickedOne = false;
+        clickedTwo = false;
+        clickedThree = false;
+    }
+    clickedTwo = false;
 }
 
 function imNotStinky(){
