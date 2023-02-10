@@ -29,6 +29,7 @@ const bul2 = document.createElement('li');
 bul1.innerText = "reading";
 hobbiesList.appendChild(bul2);
 
+
 const bul3 = document.createElement('li');
 bul1.innerText = "bull fighting";
 hobbiesList.appendChild(bul3);
