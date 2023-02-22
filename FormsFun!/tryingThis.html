@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attempt 2
+    </title>
+</head>
+
+<body>
+    <p>Please enter your information:</p>
+    <div id="group">
+    </div>
+
+    <p id="output"></p>
+
+    <form id="inputAccepter" onsubmit="return validateForm()">
+        <input id="numInput" name="numInput" placeholder="">
+        <input type="submit" value="Submit" placeholder="">
+        <p id="result">this is where the result will go</p>
+    </form>
+
+    <script>
+        const options = ['US Phone Number', 'French Phone Number', 'Social Security Number'];
+
+        // generate the radio groups        
+        const group = document.querySelector("#group");
+        group.innerHTML = options.map((options) => `<div>
+                <input type="radio" name="options" value="${options}" id="${options}">
+                <label for="${options}">${options}</label>
+            </div>`).join(' ');
+
+        // add an event listener for the change event
+        const radioButtons = document.querySelectorAll('input[name="options"]');
+        for (const radioButton of radioButtons) {
+            radioButton.addEventListener('change', showSelected);
+        }
+
+        function showSelected(e) {
+            console.log(e);
+            if (this.checked) {
+                document.querySelector('#output').innerText = `${this.value}:`;
+                //use if statement to get which the placeholder really should be 
+                document.getElementById("numInput").placeholder = `${this.value}:`
+            }
+        }
+        function validateForm() {
+            let x = document.forms["inputAccepter"]["numInput"].value;
+                if (x.length < 10) {
+                alert("Type more numbers");
+                return false;
+                }else{
+                    document.getElementById('result').innerHTML = "You sumbited"+x;
+                    return true;    
+                }
+            
+        }
+    </script>
+    
+</body>
+
+</html>
