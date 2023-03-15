@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Webpage</title>
+    <link rel="stylesheet" href="someCSS.css">
+</head>
+
+<body>
+    <header>
+        <ul id="header">
+            <li><a href="a_starting.html">Home</a></li>
+            <li class="active"><a href="b_movingButtons.html">Moving Buttons</a></li>
+            <li><a href="c_scrambleText.html">Scrambling Text Fields</a></li>
+            <li><a href="d_changingRadio.html">Stubborn Radio Buttons</a></li>
+        </ul>
+    </header>
+    <div class="content">
+        <div class="left" style="color:white;">
+            <button id="move-button" class="button">Dare you to click me</button>
+            <script>
+                const button = document.getElementById('move-button');
+                const buttonBox = document.querySelector('.left');
+
+                button.addEventListener('mouseover', (event) => {
+                    // get the dimensions of the button and the container
+                    const buttonRect = button.getBoundingClientRect();
+                    const containerRect = buttonBox.getBoundingClientRect();
+                    // const headerRect = document.getElementById('#header').getBoundingClientRect();
+                    // const footerRect = document.getElementById('#footer').getBoundingClientRect();
+
+
+                    // calculate the maximum x and y distances the button can move
+                    const maxX = containerRect.width - buttonRect.width;
+                    const maxY = containerRect.height - buttonRect.height;
+
+                    // generate a random x and y position within the container
+                    const randomX = Math.floor(Math.random() * maxX);
+                    const randomY = Math.floor(Math.random() * maxY);
+
+                    // move the button to the new position
+                    button.style.left = randomX + 'px';
+                    button.style.top = randomY + 'px';
+                });
+
+            </script>
+        </div>
+        <div class="right" margin=20px>
+            <h2> Let's try to understand this:</h2>
+            <ul>
+                <li>The button element should be created in a container with boundaries</li>
+                <li>There is a event listener mouseover event attached to the button to take an action when someone
+                    tries to hover over the button</li>
+                <li>When triggered, the script calculates the dimensions of the button's container</li>
+                <li>After calculating the maximum x and y coordinates the button can move, it will generate a random
+                    number within those boundaries</li>
+                <li>The script then moves the button to these newly generated coordinates</li>
+            </ul>
+
+        </div>
+    </div>
+    <footer class="footer"></footer>
+</body>
+
+</html>

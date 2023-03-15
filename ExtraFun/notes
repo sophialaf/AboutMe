@@ -1,0 +1,21 @@
+-Buttons that move away from the mouse
+DONE
+
+-Text fields that scramble what you enter
+
+
+-Radio buttons that select a button other than the one you picked.
+
+
+-Forms that rearrange themselves or colors change when you fill in a field.
+(I know you’ll have fun doing that)
+
+Then try some stuff with CSS, like web pages where the content scrolls over 
+a static background (lots of companies have pages like that). It’s called Parallax Scrolling. 
+There’s even a W3Schools How-To on it.
+DONE
+
+
+Another thing to do is explore Google’s web developer site which has lots of best-practices for web page design and examples of development patterns - https://web.dev/.
+
+maybe I do a page with each skill and then do like a mode where I explain how to do it for others!!!

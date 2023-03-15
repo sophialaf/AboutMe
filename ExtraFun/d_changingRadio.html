@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>This is a fun website</title>
+    <link rel="stylesheet" href="someCSS.css">
+    <script src="Script.js"></script>
+</head>
+
+<body id="radioButtonBody">
+    <ul id="header">
+        <li><a href="a_starting.html">Home</a></li>
+        <li><a href="b_movingButtons.html">Moving Buttons</a></li>
+        <li><a href="c_scrambleText.html">Scrambling Text Fields</a></li>
+        <li class="active"><a class="active" href="d_changingRadio.html">Stubborn Radio Buttons</a></li>
+    </ul>
+    <div class="container">
+        <div class="explaination">
+            <h2>Now we have some funky radio buttons</h2>
+            <p>When you try to select one, it'll chose a different one instead</p>
+            <p>This is how I did it:</p>
+            <ol>
+                <li>Create your radio buttons like normal</li>
+                <li>Add event listeners to each radio button</li>
+                <li>In the script, use the ".checked" method to code what is checked and what isn't</li>
+            </ol>
+            <p>It's that simple!</p>
+            <p>If you want a little spice like mine, add some random functions for selecting a specific radio button</p>
+        </div>
+
+        <div style="margin:20px">
+            <h3>Do you think sexism is good or bad?</h3>
+            <label>
+                <input type="radio" name="goodSelect" value="good">
+                I think it is good
+            </label><br>
+            <label>
+                <input type="radio" name="badSelect" value="bad">
+                I think it is bad
+            </label><br>
+            <label>
+                <input type="radio" name="uglySelect" value="ugly">
+                You're ugly
+            </label><br>
+            <label>
+                <input type="radio" name="reallybadSelect" value="realbad">
+                I love sexism. Women can't be in computer science.
+                <!-- </label><br>
+        <label>
+            <input type="radio" name="hateWomenSelect" value="hateWomen">
+            Women are yucky.
+        </label>
+        <br><label>
+            <input type="radio" name="loveWomenSelect" value="loveWomen">
+            I think women are the superior sex.
+        </label> -->
+                <br>
+                <p id="responce"></p>
+                <button class="radioButton" id="my-button">I want you to cry.</button>
+        </div>
+    </div>
+
+    <script>
+        const goodRadio = document.querySelector('input[value="good"]');
+        const badRadio = document.querySelector('input[value="bad"]');
+        const uglyRadio = document.querySelector('input[value="ugly"]');
+        const realbadRadio = document.querySelector('input[value="realbad"]');
+        const myButton = document.getElementById('my-button');
+        const body = document.body;
+        const outputParagraph = document.getElementById('responce');
+
+        // event listener for radio button clicks
+        goodRadio.addEventListener('click', () => {
+            goodRadio.checked = false;
+            realbadRadio.checked = false;
+            badRadio.checked = true;
+            uglyRadio.checked = false;
+            outputParagraph.textContent = "Wow. I can't believe you. You know I'm a woman right???"
+        });
+
+        badRadio.addEventListener('click', () => {
+            badRadio.checked = false;
+            goodRadio.checked = false;
+            realbadRadio.checked = true;
+            uglyRadio.checked = false;
+            outputParagraph.textContent = "That is so rude! My mom thinks I'm pretty"
+        });
+
+        uglyRadio.addEventListener('click', () => {
+            outputParagraph.textContent = "Why do you want me to cry????"
+            realbadRadio.checked = false;
+            goodRadio.checked = false;
+            badRadio.checked = false;
+            myButton.click();
+        });
+        realbadRadio.addEventListener('click', () => {
+            realbadRadio.checked = false;
+            badRadio.checked = false;
+            goodRadio.checked = true;
+            uglyRadio.checked = false;
+            outputParagraph.textContent = "Wow. I can't believe you. You know I'm a woman right???"
+        });
+
+        myButton.addEventListener('click', () => {
+                body.style.backgroundImage = "url('sophie_crying_single.jpg')";
+                window.scrollTo(0, document.body.scrollHeight);
+            });
+    </script>
+    <footer class="footer">
+        <p>&copy; 2023 Your Mom</p>
+    </footer>
+
+</body>
+
+</html>

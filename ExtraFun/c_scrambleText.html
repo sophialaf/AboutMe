@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>This is a fun website</title>
+    <link rel="stylesheet" href="someCSS.css">
+    <script>
+        function scrambleText() {
+            var inputBox = document.getElementById("textInput");
+            var inputText = inputBox.value;
+            var scrambledText = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var randomIndex = Math.floor(Math.random() * inputText.length);
+                scrambledText += inputText.charAt(randomIndex);
+            }
+            inputBox.value = scrambledText;
+        }
+
+        function submitAnswer(){
+            const submitParagraph = document.getElementById("submitP");
+            const textInput = document.getElementById("textInput").value;
+            submitParagraph.textContent="You really think "+textInput+" is the President?? WOw.";
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="header">
+        <li><a href="a_starting.html">Home</a></li>
+        <li><a href="b_movingButtons.html">Moving Buttons</a></li>
+        <li class="active"><a href="c_scrambleText.html">Scrambling Text Fields</a></li>
+        <li><a href="d_changingRadio.html">Stubborn Radio Buttons</a></li>
+    </ul>
+    <div class="container">
+        <div class="left">
+            <h2>I triple dog dare you to try to answer this quesiotn</h2>
+            <p>What you're experiencing isn't a stroke -- I swear</p>
+            <p>I am a brilliant coder and want you to Fail :)</p>
+        </div>
+        <div class="right">
+            <h1>Scramble Text Input</h1>
+            <p>Who is the president of the US?</p>
+            <input type="text" id="textInput" onkeyup="scrambleText()">
+            <input type="submit" onclick="submitAnswer()"> 
+            <p id="submitP"></p>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2023 Your Mom</p>
+        </footer>
+    </div>
+</body>
+
+</html>
