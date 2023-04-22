@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>butts</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+        body {
+            background-color: lightpink;
+        }
+
+        h1 {
+            color: darkmagenta;
+        }
+
+        b {
+            color: magenta;
+        }
+
+        .myflexbox {
+            display: flex;
+            gap: 5px;
+            resize: horizontal;
+            overflow: hidden;
+            padding: 2px;
+
+
+        }
+
+        .flex-item {
+            height: var(--boxsize);
+            width: var(--boxsize);
+            background: pink;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+
+        }
+
+        html {
+            font-size: 1.5rem;
+            font-family: 'Creepster', cursive;
+            font-weight: bold;
+        }
+
+        header {
+            grid-area: header;
+            background-color: darkpink;
+            padding: 1rem;
+        }
+
+        content {
+            grid-area: content;
+            background-color: hotpink;
+            padding: 1rem;
+        }
+
+        menu {
+            grid-area: menu;
+            background-color: deeppink;
+        }
+
+        footer {
+            padding: 1rem;
+            grid-area: footer;
+            background-color: darkmagenta;
+        }
+
+        .container {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: 0.5fr 3fr;
+            grid-template-areas: "header  header header""menu content content""footer  footer footer";
+        }
+
+        .current {
+            color: ghostwhite;
+            /*  haha  */
+        }
+
+        .notCurrent {
+            color: black;
+        }
+
+        .menus li {
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="script.js">
+
+    </script>
+
+    <div class="container">
+        <header>
+            <h1>The invisible man</h1>
+        </header>
+
+        <content>
+            <div id='content'>
+                <h2>I know you're curious about him.</h2>
+                <p>Ever felt like there was someone watching you when no one was around?</p>
+            </div>
+
+        </content>
+
+        <menu>
+            <h2>Menu</h2>
+            <div id='menu'>
+                <ul class="menu">
+                    <li home id="one" class="current" onclick="fillContent('main',this)">The beginning</li>
+                    <li mefacts id="two" class="notCurrent" onclick="fillContent('mefacts',this)">How it happened</li>
+                    <li coolsites id="three" class="notCurrent" onclick="fillContent('coolsites',this)">Watch out.</li>
+                </ul>
+            </div>
+
+        </menu>
+
+        <footer>
+
+            <div style='align-items:left;'>Copyright © 2023 LaForest Institute for the creeps<div>
+
+
+
+        </footer>
+    </div>
+
+    <script>
+        function fillContent(url, elem) {
+            document.querySelector("#one").className = "notCurrent";//Changes menu all to black
+            document.querySelector("#two").className = "notCurrent";
+            document.querySelector("#three").className = "notCurrent";
+
+            elem.className = "current";//Sets the current page to red highlight
+
+            fetch(url)//fetches html for content for each page
+                .then(function (response) { return response.text(); })
+                .then(function (data) {
+                    document.querySelector('#content').innerHTML = data;
+                });
+
+        }
+    </script>
+
+
+</body>
+
+</html>
