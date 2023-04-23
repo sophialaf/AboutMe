@@ -23,6 +23,6 @@ const list = [
 ];
 app.get('/img', function (req, res) {
     let i = Math.floor(Math.random() * list.length);
-    let url = list[i];
+    let url = list[i]; 
     res.send(url);
 });
