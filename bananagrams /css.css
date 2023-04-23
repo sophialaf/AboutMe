@@ -18,12 +18,37 @@
     opacity: 1
 }
 
-.header{
+.header {
     text-align: center;
     font-family: fantasy;
 }
 
-.startButtons{
+.startButtons {
     align-content: center;
 
+}
+
+table {
+    border-collapse: collapse;
+    background-color: rgb(255, 190, 69);
+}
+
+td {
+    width: 30px;
+    height: 40px;
+    border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
 }
