@@ -4,3 +4,8 @@ the game id binds the players to a game that talks to a server. server gets a me
 sets game state like the version thing and creates like a peel change
 old versions would then get a tile
 
+Maybe there's a check on how many tiles are remaining and if there aren't anymore 
+then the split option goes dark. You can only then check for Bananas
+
+should there be a timer? and maybe a scoreboard for shortest time?
+
