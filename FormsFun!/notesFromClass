@@ -1,0 +1,47 @@
+// changes the output to the value of the selected code
+        /*
+        function showRadio(event{
+            const r = document.querySelector("#result");
+            const t = event.target;
+            switch  (t.value){
+                case
+            }
+        })
+         */
+        /*
+        to change typing in real time, use key down events:
+        function setUpEntry(event){
+            switch (t.value){
+                case "us";
+                n1.innerHTML = "US Phone Number";
+                n.placeholder = "(xxx)xxx-xxxx";
+                n.removeEventListener('keydown', 'formatSS')//format ss is another method
+                break;
+
+            }
+        }
+
+        funtion formatSS(event){
+            if(event.key == "Enter" || event.key == "Backspace" || event.key == "Delete"){
+                return;
+            }
+            //OR
+            if(!event.key.match(/[0-9]/){
+                event.preventDefault();
+                return;
+            }
+            // can also instead if the event.key is a number instead of all the function keys
+            
+            event.preventDefault();
+            let elem = event.target;
+            if(elem.value.length >10){
+                return;
+            } 
+            elem.value+= event.key;
+
+            if(t.value.length == 3 || t.value == 6){
+                t.value+= "-";
+            }
+
+            //could also do an if statement that when someone enters a 10 digit sequence, slice the "-"s in or whatever         }
+        */

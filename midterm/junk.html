@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sophia is dope</title>
+    <link rel="stylesheet" href="styling_for_stylish_girls.css">
+</head>
+<!-- QUESTION 1-->
+
+<body>
+    <style>
+        #myid {
+            color: red;
+        }
+
+        .myclass {
+            color: green;
+        }
+    </style>
+    <p id="myid" class="myclass">This is line one</p>
+    <p id="myid" class="myclass" style="color: blue">
+        This is line two
+    </p>
+
+    <!-- QUESTION 2-->
+    <style>
+        #q4 {
+            font-size: 20px;
+        }
+
+        .two {
+            font-size: 2em;
+        }
+
+        #one {
+            font-size: 15px;
+        }
+    </style>
+    <div id="q4">
+        <p id="one">line one</p> <!-- font size =    px -->
+        <p class="two">line two</p> <!-- font size =    px -->
+        <p>line three</p> <!-- font size =    px -->
+    </div>
+
+    <!--Fill in the following code to create a numbered list of 5 items (5 points)-->
+
+    <ol id="mylist"></ol>
+    <script>
+        let ingredients = ["flour", "milk", "butter", "sugar", "eggs"];
+        let mylist = document.querySelector("#mylist");
+        for (let i = 0; i < ingredients.length; i++) {
+            let li = document.createElement("li");
+            li.textContent = ingredients[i];
+            //li.style.listStyle = "decimal";
+            mylist.appendChild(li);
+        }
+    </script>
+
+    <div id="bluebox" style="width: 100px; height: 100px;"></div>
+    <script>
+        let box = document.querySelector("#bluebox");
+        box.style.backgroundColor = "lightblue";
+    </script>
+
+
+
+    Name: <input type="text" id="name">
+    <button onclick="getname()">Get Name</button>
+    <script>
+        function getname() {
+            let name = document.getElementById("name").value;
+            alert(name);
+        }
+    </script>
+
+    <br>
+    <input type="radio" name="pic" value="jpg">jpg<br>
+    <input type="radio" name="pic" value="png">png<br>
+    <input type="radio" name="pic" value="gif">gif<br>
+    <button onclick="imgFormat()">Choose</button>
+    <script>
+        function imgFormat() {
+            let choice = document.querySelector("input[type='radio']:checked").value;
+            alert(choice);
+        }
+    </script>
+
+<br>
+First Name: <input type="text" id="fname"><br>
+Last name: <input type="text" id="lname"><br>
+City: <input type="text" id="city"><br>
+<button onclick="setaddress()">Submit</button>
+
+<script>
+function setaddress() {
+    let first = document.querySelector("#fname").value;
+    let last = document.querySelector("#lname").value;
+    let city = document.querySelector("#city").value;
+    let address = first + ", " + last + ", " + city;
+    alert(address);
+}
+</script>
+
+<style>
+    #flex-container {
+        display: flex;
+        align-items: flex-end;   
+        flex-direction: column;    
+        justify-content: space-around;    
+        border: 1px solid black;
+        height: 500px;
+        background-color: #EEE;
+    }
+    #item1 { width: 200px; }
+    #item2 { width: 100px; }
+    #item3 { width: 300px; }
+    .box {
+        background-color: #888;
+        border: 1px solid black;
+        height: 100px;
+        margin: 20px;
+    }
+</style>
+<div id="flex-container">
+    <div id="item1" class="box">Item 1</div>
+    <div id="item2" class="box">Item 2</div>
+    <div id="item3" class="box">Item 3</div>
+</div>
+
+
+<style>
+    #my5x4grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        height: 100px;
+        background-color: #EEE;
+        overflow: auto;
+        resize: both;
+    }
+</style>
+<div id="my5x4grid"></div>
+
+
+</body>
