@@ -27,6 +27,22 @@
             <p>&copy; 2023 Your Mom</p>
         </footer>
     </div>
+    <script>
+        function fillContent(url, elem) {
+            document.querySelector("#one").className = "notCurrent";//Changes menu all to black
+            document.querySelector("#two").className = "notCurrent";
+            document.querySelector("#three").className = "notCurrent";
+
+            elem.className = "current";//Sets the current page to red highlight
+
+            fetch(url)//fetches html for content for each page
+                .then(function (response) { return response.text(); })
+                .then(function (data) {
+                    document.querySelector('#content').innerHTML = data;
+                });
+
+        }
+    </script>
 </body>
 
 </html>
