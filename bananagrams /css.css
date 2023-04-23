@@ -2,7 +2,7 @@
     background-color: #f4511e;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 26px 38px;
     text-align: center;
     font-size: 16px;
     margin: 4px 2px;
@@ -25,7 +25,18 @@
 
 .startButtons {
     align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 190px;
+    /* margin: 30px; */
+}
 
+.instructionsButton {
+    position: absolute;
+    bottom: 80px;
+    right: 10%;
+    /* transform: translateX(-30%); */
 }
 
 table {
