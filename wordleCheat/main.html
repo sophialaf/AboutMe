@@ -29,10 +29,9 @@
         }
 
         function showWords(input) {
-            let words = input.split(' '); // Split the input into an array of words
-            let output = words.join('<br>'); // Join the words with <br> tags
-            document.getElementById('words').innerHTML = output; // Display the output on HTML
-
+            let words = input.split(' '); 
+            let output = words.join('<br>'); 
+            document.getElementById('words').innerHTML = output; 
             showWords(getWords());
         }
 
