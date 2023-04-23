@@ -1,21 +1,21 @@
-.button {
-    background-color: #f4511e;
+button {
+    background-color:rgb(255, 190, 69);
     border: none;
     color: white;
     padding: 26px 38px;
     text-align: center;
     font-size: 16px;
     margin: 4px 2px;
-    opacity: 0.6;
+    opacity: 1;
     transition: 0.3s;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-
+    border-radius: 40%;
 }
 
 .button:hover {
-    opacity: 1
+    opacity: 0.6;
 }
 
 .header {
@@ -62,4 +62,13 @@ td {
 
 .right {
     text-align: right;
+}
+
+body{
+    background-color:rgb(99, 51, 51) ;
+}
+
+.centered{
+    color:rgb(255, 190, 69);
+    text-align: center;
 }
