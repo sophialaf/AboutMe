@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+    font-family: 'papyrus';
+}
+
+.chunk {
+    text-align: center;
+}
+
+.button {
+    background-color: midnightblue;
+    color: white;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    padding: 30px;
+    font-size: 15px;
+    border-radius: 12px;
+}
+
+.button:hover {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+/* unvisited link */
+a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: rgb(197, 185, 251);
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(133, 0, 73);
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}

@@ -7,9 +7,6 @@
     text-align: center;
     background-color: red;
     position: relative;
-    animation-name: moveAndChange;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
 }
 
 .Origin_story {
@@ -160,79 +157,20 @@ tr:nth-child(even) {
 
 @keyframes colorChange {
     0% {
-        background-color: red;
+        background-color: white;
     }
-
-    10% {
-        background-color: rgb(255, 237, 71);
+    100%{
+        background-color:white;
     }
-
-    20% {
-        background-color: #c480ff;
-    }
-
-    30% {
-        background-color: chartreuse;
-    }
-
-    40% {
-        background-color: darkblue;
-    }
-
-    50% {
-        background-color: magenta;
-    }
-
-    60% {
-        background-color: seagreen;
-    }
-
-    70% {
-        background-color: springgreen;
-    }
-
-    80% {
-        background-color: tomato;
-    }
-
-    90% {
-        background-color: black;
-    }
-
-    100% {
-        background-color: violet;
-    }
+    
 }
 
 @keyframes moveAndChange {
     0% {
-        background-color: red;
-        left: 0px;
-        top: 0px;
+        background-color: white;
     }
-
-    25% {
-        background-color: yellow;
-        left: 200px;
-        top: 0px;
-    }
-
-    50% {
-        background-color: blue;
-        left: 200px;
-        top: 200px;
-    }
-
-    75% {
-        background-color: green;
-        left: 0px;
-        top: 200px;
-    }
-
     100% {
-        background-color: red;
-        left: 0px;
-        top: 0px;
+        background-color: white;
     }
 }
 
@@ -254,95 +192,3 @@ tr:nth-child(even) {
     }
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-
-    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* Popup container */
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-/* The actual popup (appears on top) */
-.popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
