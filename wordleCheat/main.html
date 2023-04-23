@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cheater Cheater Pumpkin Eater</title>
+</head>
+
+<body>
+    <button onclick="getWords('previous')">Previous 20</button>
+    <button onclick="getWords('next')">Next 20</button>
+    <div id="words"></div>
+    <script>
+        let currentPosition = 0;
+        function getWords(direction) {
+            if (direction === 'next') {
+                currentPosition += 20;
+            } else if (direction === 'previous') {
+                currentPosition -= 20;
+                if (currentPosition < 0) {
+                    currentPosition = 0;
+                }
+            }
+            fetch(`/words?start=${currentPosition}`)
+                .then(function (response) { return response.text(); })
+                .then(function (data) {
+                    document.querySelector('#words').textContent = data;
+                });
+        }
+
+        function showWords(input) {
+            let words = input.split(' '); // Split the input into an array of words
+            let output = words.join('<br>'); // Join the words with <br> tags
+            document.getElementById('words').innerHTML = output; // Display the output on HTML
+
+            showWords(getWords());
+        }
+
+    </script>
+</body>
+
+</html>
