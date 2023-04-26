@@ -2,11 +2,9 @@
 <html>
 
 <head>
-
-    <p></p>
-
     <title> Bananagramamamas</title>
     <link rel="stylesheet" href="css.css">
+    <script src="js.js"></script>
 </head>
 
 <body>
@@ -15,14 +13,16 @@
             <button onclick="goBack()">Back</button>
         </div>
         <div class=right>
+            <button onclick="doitall()">Test div thing</button>
             <button>Peel</button>
             <button>Bananas</button>
             <button>Dump</button>
         </div>
     </div>
     <div class="hand">
-        <div clas="left" id="handSource">
-            <div id="drag-me" class="tile" draggable="true" style="width:30px;height:40px;background-color:antiquewhite;"></div>
+        <div class="left" id="handSource">
+            <div id="drag-me" class="tile" draggable="true" style="width:30px;height:40px;background-color:antiquewhite;">
+            <p id="tile_letter"></p></div>
         </div>
         <div class="right" id="handTarget">
 
@@ -34,7 +34,7 @@
 
             <tr>
                 <td></td>
-                <td class="cell">1</td>
+                <td class="cell" id="cell1">1</td>
                 <td class="cell">2</td>
                 <td class="cell">3</td>
                 <td class="cell">4</td>
@@ -111,7 +111,6 @@
                 <td class="cell"></td>
                 <td class="cell"></td>
             </tr>
-            <tr></tr>
             <td>B</td>
             <td class="cell"></td>
             <td class="cell"></td>
@@ -673,15 +672,6 @@
             </tr>
         </table>
     </div>
-    <script>
-        function goBack() {
-            window.location.href = "startPage.html";
-        }
-        
-
-    </script>
-
-
 </body>
 
 </html>
