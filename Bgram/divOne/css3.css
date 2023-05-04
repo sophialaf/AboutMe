@@ -1,47 +1,3 @@
-/* .output {
-    display: grid;
-    width: 80vw;
-    height: 80vh;
-    margin: auto;
-    border: 1px solid red;
-    padding: 0;
-}
-
-.box {
-    text-align: center;
-    border: 1px solid #ddd;
-}
-
-body {
-    display: grid;
-    grid-template-columns: repeat(var(--cols), 1fr);
-    grid-template-rows: repeat(var(--rows), 1fr);
-}
-
-div {
-    background-color: #fff;
-    width: 99%;
-    height: 50px;
-}
-
-div:nth-child(even) {
-    background-color: #000;
-}
-
-.gamearea{
-    height: max-content;
-}
-
-.buttonBar{
-    height: 30px;
-    background-color: #000;
-}
-
-.cardGeneration{
-    height: 30px;
-    background-color: rgb(210, 81, 81);
-} */
-
 
 .container {
     display: flex;
@@ -61,20 +17,24 @@ div:nth-child(even) {
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
     grid-template-rows: repeat(var(--rows), 30px);
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(25, 3, 3);
 }
 
 .gamearea > div {
-    height: 60px;
+    height: 30px;
     width: 30px;
 }
 
 .even {
-    background-color: #000;
+    background-color:rgb(76, 39, 39);
 }
 
 .odd {
-    background-color: #fff;
+    background-color: rgb(109, 56, 56);
 }
+
 #heading {
     display: flex;
     align-items: center;
@@ -90,4 +50,29 @@ div:nth-child(even) {
 
 #heading button:first-child {
     margin-right: auto; /* Push the button to the left */
+}
+
+button {
+    background-color: rgb(255, 190, 69);
+    border: none;
+    color: white;
+    padding: 26px 38px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 40%;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+
+body {
+    background-color: rgb(99, 51, 51);
 }
