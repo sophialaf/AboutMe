@@ -1,0 +1,93 @@
+/* .output {
+    display: grid;
+    width: 80vw;
+    height: 80vh;
+    margin: auto;
+    border: 1px solid red;
+    padding: 0;
+}
+
+.box {
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+body {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+}
+
+div {
+    background-color: #fff;
+    width: 99%;
+    height: 50px;
+}
+
+div:nth-child(even) {
+    background-color: #000;
+}
+
+.gamearea{
+    height: max-content;
+}
+
+.buttonBar{
+    height: 30px;
+    background-color: #000;
+}
+
+.cardGeneration{
+    height: 30px;
+    background-color: rgb(210, 81, 81);
+} */
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.gamearea {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-rows: repeat(var(--rows), 30px);
+}
+
+.gamearea > div {
+    height: 60px;
+    width: 30px;
+}
+
+.even {
+    background-color: #000;
+}
+
+.odd {
+    background-color: #fff;
+}
+#heading {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    background-color: #000000; /* Set background color to black */
+    color: #FFFFFF; /* Set text color to white */
+    padding: 0 10px;
+}
+
+#heading button {
+    margin-right: 5px;
+}
+
+#heading button:first-child {
+    margin-right: auto; /* Push the button to the left */
+}

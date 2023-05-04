@@ -60,3 +60,12 @@ let server = app.listen(port, function () {
     console.log("App server is running on port", port);
     console.log("to end press Ctrl + C");
 });
+
+const sqlite3 = require('sqlite3').verbose();  // verbose() gives you better error codes. Remove when done debugging
+// Open a new database connection to the database file
+let database = new sqlite3.Database('bananagramsDB.db', function (error) {
+    if (error) {
+        console.error(err.message);
+        return {};
+    }
+});

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>John board</title>
+    <link rel="stylesheet" href="css3.css">
+</head>
+
+<body>
+
+    <div class="heading">
+        <div class="container">
+            <div class="left">
+                <button>Button 1</button>
+            </div>
+            <div class="right">
+                <button>Button 2</button>
+                <button>Button 3</button>
+                <button>Button 4</button>
+            </div>
+        </div>
+    </div>
+    <div class="hand">
+        <div style="height:30px;background-color:black;width:20px"></div>
+    </div>
+    <div class="gamearea" id="gameArea"></div>
+
+
+
+    <script>
+        // Define the number of rows and columns
+        var rows = 30;
+        var cols = 40;
+
+        // Generate the HTML code for the checkerboard grid
+        var html = '';
+        for (var i = 0; i < rows; i++) {
+            for (var j = 0; j < cols; j++) {
+                if ((i + j) % 2 == 0) {
+                    html += '<div class="even"></div>';
+                } else {
+                    html += '<div class="odd"></div>';
+                }
+            }
+        }
+
+        // Add the HTML code to the body of the document
+        document.getElementById('gameArea').innerHTML = html;
+
+        // Set the custom properties for the grid rows and columns
+        document.documentElement.style.setProperty('--rows', rows);
+        document.documentElement.style.setProperty('--cols', cols);
+    </script>
+</body>
+
+</html>
