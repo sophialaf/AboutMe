@@ -16,7 +16,6 @@
             <div class="left">
                 <button onclick="goBack()">Back to menu</button>
             </div>
-            <img src="Bgram/divOne/bag.jpeg">
             <div class="right">
                 <button onclick="generateHand().snapToGrid();">generate hand</button>
                 <button id="animate">Dump</button>
@@ -24,8 +23,21 @@
             </div>
         </div>
     </div>
-    <div id="hand">
-        <div class="drag-me" draggable="true"></div>
+    <div id="hand" style="height:40px" class="cell">
+        <div id="div-holder" style="display: flex;
+        flex-direction: row;">
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+        </div>
+
         <div id="board"> </div>
     </div>
     <div id="game-area"></div>
@@ -33,8 +45,9 @@
 
 
     <script>
-
-
+        /*
+        generating grid
+        */
         // Define the number of rows and columns 
         var rows = 30;
         var cols = 40;
@@ -58,9 +71,41 @@
         document.documentElement.style.setProperty('--rows', rows);
         document.documentElement.style.setProperty('--cols', cols);
 
-
+        /*
+        draggable junk
+        */
         var dragMe = document.querySelector('.drag-me');
         var cells = document.getElementsByClassName('cell');
+        var draggables = document.querySelectorAll('.drag-me');
+
+
+        // Update the event listeners to handle each draggable element
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].addEventListener('dragover', function (event) {
+                event.preventDefault();
+            });
+
+            cells[i].addEventListener('drop', function (event) {
+                event.preventDefault();
+                var draggableId = event.dataTransfer.getData('text/plain');
+                var draggableElement = document.querySelector('[data-draggable-id="' + draggableId + '"]');
+                this.appendChild(draggableElement);
+            });
+        }
+
+        // Update the dragstart event listener to set the dataTransfer object with the draggable element's ID
+        for (var i = 0; i < draggables.length; i++) {
+            draggables[i].addEventListener('dragstart', function (event) {
+                event.dataTransfer.setData('text/plain', this.getAttribute('data-draggable-id'));
+                dragMe = this;
+            });
+        }
+
+
+        // Add a unique identifier to each draggable element
+        for (var i = 0; i < draggables.length; i++) {
+            draggables[i].setAttribute('data-draggable-id', i);
+        }
 
         dragMe.addEventListener('dragstart', function (event) {
             event.dataTransfer.setData('text/plain', null);
