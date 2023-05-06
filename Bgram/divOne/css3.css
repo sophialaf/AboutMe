@@ -1,4 +1,3 @@
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -13,7 +12,7 @@
     text-align: right;
 }
 
-.gamearea {
+#game-area {
     display: grid;
     grid-template-columns: repeat(var(--cols), 1fr);
     grid-template-rows: repeat(var(--rows), 30px);
@@ -22,13 +21,13 @@
     border-color: rgb(25, 3, 3);
 }
 
-.gamearea > div {
+#game-area>div {
     height: 30px;
     width: 30px;
 }
 
 .even {
-    background-color:rgb(76, 39, 39);
+    background-color: rgb(76, 39, 39);
 }
 
 .odd {
@@ -39,8 +38,8 @@
     display: flex;
     align-items: center;
     height: 20px;
-    background-color: #000000; /* Set background color to black */
-    color: #FFFFFF; /* Set text color to white */
+    background-color: #000000;
+    color: #FFFFFF;
     padding: 0 10px;
 }
 
@@ -49,7 +48,7 @@
 }
 
 #heading button:first-child {
-    margin-right: auto; /* Push the button to the left */
+    margin-right: auto;
 }
 
 button {
@@ -75,4 +74,197 @@ button:hover {
 
 body {
     background-color: rgb(99, 51, 51);
+}
+
+.tile {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    background-color: #fff;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+
+.centered {
+    color: rgb(255, 190, 69);
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+    font-family: fantasy;
+}
+
+.startButtons {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 190px;
+    /* margin: 30px; */
+}
+
+.instructionsButton {
+    position: absolute;
+    bottom: 80px;
+    right: 10%;
+    /* transform: translateX(-30%); */
+}
+
+.tile {
+    background-color: yellow;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+.tile.snapped {
+    position: relative;
+}
+
+.blink {
+    animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinkFaster {
+    animation: blink .3s steps(1, end) infinite;
+}
+
+@keyframes blinkFaster {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        background-color: red;
+    }
+
+    10% {
+        background-color: rgb(255, 237, 71);
+    }
+
+    20% {
+        background-color: #c480ff;
+    }
+
+    30% {
+        background-color: chartreuse;
+    }
+
+    40% {
+        background-color: darkblue;
+    }
+
+    50% {
+        background-color: magenta;
+    }
+
+    60% {
+        background-color: seagreen;
+    }
+
+    70% {
+        background-color: springgreen;
+    }
+
+    80% {
+        background-color: tomato;
+    }
+
+    90% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: violet;
+    }
+}
+
+@keyframes moveAndChange {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+}
+
+.blinkFastest {
+    animation: blink .1s steps(1, end) infinite;
+}
+
+@keyframes blinkFaster {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.drag-me{
+    height:30px;
+    width:30px;
+    background-color:
+    rgb(255, 255, 255);
+    border-radius: 10px;
 }

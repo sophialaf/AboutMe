@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Banagrams</title>
     <link rel="stylesheet" href="css3.css">
+    <script src="game.js"></script>
 </head>
 
 <body>
@@ -13,24 +14,28 @@
     <div class="heading">
         <div class="container">
             <div class="left">
-                <button>Button 1</button>
+                <button onclick="goBack()">Back to menu</button>
             </div>
+            <img src="Bgram/divOne/bag.jpeg">
             <div class="right">
-                <button>Button 2</button>
-                <button>Button 3</button>
-                <button>Button 4</button>
+                <button onclick="generateHand().snapToGrid();">generate hand</button>
+                <button id="animate">Dump</button>
+                <button>Peel</button>
             </div>
         </div>
     </div>
-    <div class="hand">
-        <div style="height:30px;background-color:black;width:20px"></div>
+    <div id="hand">
+        <div class="drag-me" draggable="true"></div>
+        <div id="board"> </div>
     </div>
-    <div class="gamearea" id="gameArea"></div>
-
+    <div id="game-area"></div>
+    <!--For some reason, the grid script only works in this script tag. No in the .js file-->
 
 
     <script>
-        // Define the number of rows and columns
+
+
+        // Define the number of rows and columns 
         var rows = 30;
         var cols = 40;
 
@@ -39,19 +44,39 @@
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
                 if ((i + j) % 2 == 0) {
-                    html += '<div class="even"></div>';
+                    html += '<div class="even cell " ondragover="event.preventDefault();" ondrop="console.log(event.dataTransfer.getData("text/plain"));"></div>'; //add blink fast and fastest
                 } else {
-                    html += '<div class="odd"></div>';
+                    html += '<div class="odd cell "></div>';
                 }
             }
         }
 
         // Add the HTML code to the body of the document
-        document.getElementById('gameArea').innerHTML = html;
+        document.getElementById('game-area').innerHTML = html;
 
         // Set the custom properties for the grid rows and columns
         document.documentElement.style.setProperty('--rows', rows);
         document.documentElement.style.setProperty('--cols', cols);
+
+
+        var dragMe = document.querySelector('.drag-me');
+        var cells = document.getElementsByClassName('cell');
+
+        dragMe.addEventListener('dragstart', function (event) {
+            event.dataTransfer.setData('text/plain', null);
+        });
+
+        for (var i = 0; i < cells.length; i++) {
+            cells[i].addEventListener('dragover', function (event) {
+                event.preventDefault();
+            });
+
+            cells[i].addEventListener('drop', function (event) {
+                event.preventDefault();
+                this.appendChild(dragMe);
+            });
+        }
+
     </script>
 </body>
 
