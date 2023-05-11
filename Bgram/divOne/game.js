@@ -3,7 +3,13 @@ Assigning tile values
 --------------------------------------------------------------------------------------------------------*/
 function assignRandomLetters() {
     fetch('/tiles')
-        .then(res => res.json())
+        .then(res => {
+            // Check if the response was successful
+            if (!res.ok) {
+                throw new Error(`Failed to retrieve tiles (HTTP ${res.status})`);
+            }
+            return res.json();
+        })
         .then(data => {
             const tiles = data.tiles;
             console.log('Retrieved tiles:', tiles);
@@ -13,6 +19,11 @@ function assignRandomLetters() {
             console.log('dragMeDivs:', dragMeDivs);
 
             dragMeDivs.forEach((div, index) => {
+                // Check if the tile exists at the given index
+                if (!tiles[index]) {
+                    throw new Error(`Tile not found for index ${index}`);
+                }
+
                 // Assign a random letter from the shuffled array to each div
                 const tile = tiles[index];
                 console.log(`Assigning tile ${tile.letter} to div ${index}`);
@@ -22,11 +33,16 @@ function assignRandomLetters() {
                 div.style.visibility = 'visible';
             });
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            // Log the error message and display an alert to the user
+            console.error(error);
+            alert('Failed to assign random letters to the "drag-me" divs. Please try again later.');
+        });
 }
 
 // Call the function to assign random letters to the "drag-me" divs
 assignRandomLetters();
+
 
 /*-------------------------------------------------------------------------------------------------------
 Button functionality 
