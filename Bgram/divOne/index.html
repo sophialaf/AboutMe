@@ -143,6 +143,10 @@
             }
         });
 
+        /*------------------------------------------------------------------------------------------
+        Split method
+        ------------------------------------------------------------------------------------------*/
+
         function split() {
             const tiles = document.querySelectorAll(".drag-me");
             tiles.forEach(tile => {
@@ -152,6 +156,9 @@
             splitButton.remove();
         }
 
+        /*------------------------------------------------------------------------------------------
+        Peel method
+        ------------------------------------------------------------------------------------------*/
         function peel() {
             const newDiv = document.createElement('div');
 
@@ -162,14 +169,15 @@
             handDiv.appendChild(newDiv);
         }
 
-        dump.addEventListener("drop", function (event) {
-            // Prevent default handling of the event
-            event.preventDefault();
+        //doesn't become draggable... that is an issue.
 
-            // Get the dragged element
+        /*------------------------------------------------------------------------------------------
+        Broken dump method
+        ------------------------------------------------------------------------------------------*/
+        dump.addEventListener("drop", function (event) {
+            event.preventDefault();
             var draggedElement = document.getElementById(event.dataTransfer.getData("text"));
 
-            // Check if the dragged element has the class 'drag-me'
             if (draggedElement.classList.contains("drag-me")) {
                 // Remove the dragged element from its parent
                 draggedElement.parentNode.removeChild(draggedElement);
