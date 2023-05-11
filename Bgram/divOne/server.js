@@ -5,7 +5,7 @@ const port = 3000;
 const path = require('path')
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('bananagrams.db', function (error) {
+let db = new sqlite3.Database('bananDB.sqbpro', function (error) {
     if (error) {
         console.error(error.message); // Check for database connection errors
         return {};
@@ -17,15 +17,19 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+/*------------------------------------------------------------------------------------------------------
+tiles database junk 
+-------------------------------------------------------------------------------------------------------*/
+
 app.get('/tiles', (req, res) => {
-    db.all('SELECT id, letter FROM bagTiles WHERE available = TRUE', (err, tiles) => {
+    db.all('SELECT letter FROM Tiles WHERE available = TRUE', (err, tiles) => {
         if (err) {
             console.error(err.message); // Check for errors retrieving tiles from database
-            res.status(500).send({error: 'Failed to retrieve tiles'});
+            res.status(500).send({ error: 'Failed to retrieve tiles' });
             return;
         }
         console.log(`Retrieved ${tiles.length} tiles from the database.`); // Log successful tile retrieval
-        res.send({tiles});
+        res.send({ tiles });
     });
 });
 
@@ -42,8 +46,35 @@ const shuffleArray = (array) => {
     return array;
 };
 
-// Serve the static files for drag and drop functionality
-app.use(express.static('public'));
+
+/*------------------------------------------------------------------------------------------------------
+player database junk 
+-------------------------------------------------------------------------------------------------------*/
+
+app.get('/addplayer', function (req, res) {
+    let name = req.query.name;
+    addUser(db, req.query.name)
+        .then(function () {
+            res.end();
+        })
+        .catch(function (err) {
+            console.error(err);
+            res.status(500).end();
+        });
+});
+
+async function addPlayer(db, name) {
+    return new Promise((resolve, reject) => {
+    db.run("INSERT INTO Users (name) VALUES (?)", [name], function (err) {
+        if (err) {
+            reject(err);
+        } else {
+            resolve();
+        }
+    });
+});
+}
+
 
 let server = app.listen(port, function () {
     console.log("App server is running on port", port);
