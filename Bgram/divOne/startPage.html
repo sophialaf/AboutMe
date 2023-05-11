@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <title>Bananagrammamies</title>
     <link rel="stylesheet" href="css3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aubrey&family=Barriecito&family=Creepster&display=swap"
+        rel="stylesheet">
 </head>
 
 <body style="color:rgb(255, 190, 69)">
@@ -16,8 +20,9 @@
         <!-- <img src="bananaspng.png"> -->
     </div>
     <div id="text-form" style="display:flex;align-items: center;justify-content: center;visibility:hidden;">
+        <p>Enter your name Plebian.</p>
         <input type="text" id="name" placeholder="Name" style="margin-top:60px;margin-right: 30px;">
-        <button onclick="addPlayer()" style="margin-top:60px;">Add User</button>
+        <button onclick="addPlayer()" style="margin-top:60px;">Enter!</button>
     </div>
     <button onclick="Instructions()" class="button instructionsButton">Instructions</button>
 
@@ -47,6 +52,7 @@
                 .catch((err) => {
                     console.error(`Failed to add player ${name} to the database:`, err);
                 });
+            window.location.href = "index.html";
         }
     </script>
 

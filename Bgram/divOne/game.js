@@ -77,3 +77,11 @@ function dropHandler(event) {
         draggable.style.top = container.offsetTop + "px";
     }
 }
+
+/*
+split
+*/
+function split(){
+    const tiles = document.getElementsByClassName("drag-me")
+    divHolder.style.display = "visible";
+}
