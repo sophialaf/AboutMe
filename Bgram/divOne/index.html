@@ -7,26 +7,30 @@
     <title>Banagrams</title>
     <link rel="stylesheet" href="css3.css">
     <script src="game.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aubrey&family=Barriecito&family=Creepster&display=swap"
+        rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="Bgram/divOne/icons8-banana-48.ico">
 </head>
 
 <body>
-
-    <div class="heading">
         <div class="container">
             <div class="left">
                 <button onclick="goBack()">Back to menu</button>
+                <div id="welcome" style="font-size:larger;color:white;margin-top:30px;margin-left:80px">WELCOME TO
+                    BANANAGRAMS (ish)</div>
             </div>
             <div class="right">
-                <button onclick="assignRandomLetters()">Split</button>
-                <button onclick="peelTile()">Peel</button>
+                <button onclick="split()">Split</button>
+                <button onclick="peel()">Peel</button>
                 <div id="dump">Dump (drag here)</div>
-                <!--<button onclick="dumpTiles()">Dump Tiles</button>-->
-
+                <!--NEED DUMP!!!-->
             </div>
         </div>
     </div>
     <div id="hand" style="height:40px" class="cell">
-        <div id="div-holder" style="display: flex;flex-direction: row;">
+        <div id="div-holder" style="display:flex;flex-direction:row;">
             <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
@@ -138,6 +142,49 @@
                 this.appendChild(draggableElement);
             }
         });
+
+        function split() {
+            const tiles = document.querySelectorAll(".drag-me");
+            tiles.forEach(tile => {
+                tile.style.visibility = "visible";
+            });
+            var splitButton = document.querySelector('button[onclick="split()"]');
+            splitButton.remove();
+        }
+
+        function peel() {
+            const newDiv = document.createElement('div');
+
+            newDiv.classList.add('drag-me');
+            newDiv.style.visibility = "visible";
+
+            const handDiv = document.getElementById('hand');
+            handDiv.appendChild(newDiv);
+        }
+
+        dump.addEventListener("drop", function (event) {
+            // Prevent default handling of the event
+            event.preventDefault();
+
+            // Get the dragged element
+            var draggedElement = document.getElementById(event.dataTransfer.getData("text"));
+
+            // Check if the dragged element has the class 'drag-me'
+            if (draggedElement.classList.contains("drag-me")) {
+                // Remove the dragged element from its parent
+                draggedElement.parentNode.removeChild(draggedElement);
+
+                // Create three new 'drag-me' divs that are blue
+                for (var i = 0; i < 3; i++) {
+                    var newDiv = document.createElement("div");
+                    newDiv.classList.add("drag-me");
+                    newDiv.style.backgroundColor = "blue";
+                    newDiv.draggable = true;
+                    hand.appendChild(newDiv);
+                }
+            }
+        });
+
 
     </script>
 </body>
