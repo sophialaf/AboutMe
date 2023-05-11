@@ -5,7 +5,7 @@ const port = 3000;
 const path = require('path')
 const sqlite3 = require('sqlite3').verbose();
 
-let db = new sqlite3.Database('bananDB.sqbpro', function (error) {
+let db = new sqlite3.Database('bananagramsDB.db', function (error) {
     if (error) {
         console.error(error.message); // Check for database connection errors
         return {};
@@ -22,7 +22,7 @@ tiles database junk
 -------------------------------------------------------------------------------------------------------*/
 
 app.get('/tiles', (req, res) => {
-    db.all('SELECT letter FROM Tiles WHERE available = TRUE', (err, tiles) => {
+    db.all('SELECT letter FROM Tiles WHERE grabbable = TRUE ORDER BY RANDOM() LIMIT 10', (err, tiles) => {
         if (err) {
             console.error(err.message); // Check for errors retrieving tiles from database
             res.status(500).send({ error: 'Failed to retrieve tiles' });

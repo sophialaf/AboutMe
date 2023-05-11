@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aubrey&family=Barriecito&family=Creepster&display=swap"
         rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="Bgram/divOne/icons8-banana-48.ico">
+    <link rel="icon" type="image/x-icon" href="Bgram/divOne/icons8-banana-48.ico">
 </head>
 
 <body>
@@ -132,17 +132,6 @@
                 this.appendChild(dragMe);
             });
         }
-
-        cells[i].addEventListener('drop', function (event) {
-            event.preventDefault();
-            var draggableId = event.dataTransfer.getData('text/plain');
-            var draggableElement = document.querySelector('[data-draggable-id="' + draggableId + '"]');
-            // check if the cell is empty before appending the draggable element
-            if (this.children.length === 0) {
-                this.appendChild(draggableElement);
-            }
-        });
-
         /*------------------------------------------------------------------------------------------
         Split method
         ------------------------------------------------------------------------------------------*/
