@@ -51,6 +51,22 @@
     margin-right: auto;
 }
 
+#dump {
+    background-color: rgb(255, 190, 69);
+    border: none;
+    color: white;
+    padding: 26px 38px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
 button {
     background-color: rgb(255, 190, 69);
     border: none;
@@ -269,57 +285,11 @@ body {
     border-radius: 10px;
     /* margin: 10px; */
     box-shadow: #898989 0 -4px 10px inset;
+    /* visibility: hidden; */
+    text-align: center;
 }
 
 #hand {
     display: flex;
     flex-direction: row;
 }
-
-/*
-<!-- HTML !-->
-<button class="button-73" role="button">Button 73</button>
-
-.button-73 {
-    appearance: none;
-    background-color: #FFFFFF;
-    border-radius: 40em;
-    border-style: none;
-    box-shadow: #ADCFFF 0 -12px 6px inset;
-    box-sizing: border-box;
-    color: #000000;
-    cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: -.24px;
-    margin: 0;
-    outline: none;
-    padding: 1rem 1.3rem;
-    quotes: auto;
-    text-align: center;
-    text-decoration: none;
-    transition: all .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.button-73:hover {
-    background-color: #FFC229;
-    box-shadow: #FF6314 0 -6px 8px inset;
-    transform: scale(1.125);
-}
-
-.button-73:active {
-    transform: scale(1.025);
-}
-
-@media (min-width: 768px) {
-    .button-73 {
-        font-size: 1.5rem;
-        padding: .75rem 2rem;
-    }
-}
-*/

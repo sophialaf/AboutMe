@@ -17,15 +17,27 @@
                 <button onclick="goBack()">Back to menu</button>
             </div>
             <div class="right">
-                <button onclick="generateHand().snapToGrid();">generate hand</button>
-                <button id="animate">Dump</button>
-                <button>Peel</button>
+                <button onclick="assignRandomLetters()">Split</button>
+                <button onclick="peelTile()">Peel</button>
+                <div id="dump">Dump (drag here)</div>
+                <!--<button onclick="dumpTiles()">Dump Tiles</button>-->
+
             </div>
         </div>
     </div>
     <div id="hand" style="height:40px" class="cell">
-        <div id="div-holder" style="display: flex;
-        flex-direction: row;">
+        <div id="div-holder" style="display: flex;flex-direction: row;">
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
+            <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
@@ -37,17 +49,12 @@
             <div class="drag-me" draggable="true"></div>
             <div class="drag-me" draggable="true"></div>
         </div>
-
-        <div id="board"> </div>
     </div>
     <div id="game-area"></div>
-    <!--For some reason, the grid script only works in this script tag. No in the .js file-->
-
-
     <script>
-        /*
+        /*------------------------------------------------------------------------------------------
         generating grid
-        */
+        ------------------------------------------------------------------------------------------*/
         // Define the number of rows and columns 
         var rows = 30;
         var cols = 40;
@@ -57,9 +64,9 @@
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
                 if ((i + j) % 2 == 0) {
-                    html += '<div class="even cell " ondragover="event.preventDefault();" ondrop="console.log(event.dataTransfer.getData("text/plain"));"></div>'; //add blink fast and fastest
+                    html += '<div class="even cell"></div>'; //add blink fast and fastest
                 } else {
-                    html += '<div class="odd cell "></div>';
+                    html += '<div class="odd cell"></div>';
                 }
             }
         }
@@ -71,9 +78,10 @@
         document.documentElement.style.setProperty('--rows', rows);
         document.documentElement.style.setProperty('--cols', cols);
 
-        /*
+
+        /*------------------------------------------------------------------------------------------
         draggable junk
-        */
+        ------------------------------------------------------------------------------------------*/
         var dragMe = document.querySelector('.drag-me');
         var cells = document.getElementsByClassName('cell');
         var draggables = document.querySelectorAll('.drag-me');
@@ -101,7 +109,6 @@
             });
         }
 
-
         // Add a unique identifier to each draggable element
         for (var i = 0; i < draggables.length; i++) {
             draggables[i].setAttribute('data-draggable-id', i);
@@ -121,6 +128,16 @@
                 this.appendChild(dragMe);
             });
         }
+
+        cells[i].addEventListener('drop', function (event) {
+            event.preventDefault();
+            var draggableId = event.dataTransfer.getData('text/plain');
+            var draggableElement = document.querySelector('[data-draggable-id="' + draggableId + '"]');
+            // check if the cell is empty before appending the draggable element
+            if (this.children.length === 0) {
+                this.appendChild(draggableElement);
+            }
+        });
 
     </script>
 </body>
