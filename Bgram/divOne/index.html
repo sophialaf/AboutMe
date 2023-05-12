@@ -15,19 +15,30 @@
 </head>
 
 <body>
-        <div class="container">
-            <div class="left">
-                <button onclick="goBack()">Back to menu</button>
-                <div id="welcome" style="font-size:larger;color:white;margin-top:30px;margin-left:80px">WELCOME TO
-                    BANANAGRAMS (ish)</div>
-            </div>
-            <div class="right">
-                <button onclick="split()">Split</button>
-                <button onclick="peel()">Peel</button>
-                <div id="dump">Dump (drag here)</div>
-                <!--NEED DUMP!!!-->
-            </div>
+    <div class="container">
+        <div class="left">
+            <button onclick="goBack()">Back to menu</button>
+            <div id="welcome" style="font-size:larger;color:white;margin-top:30px;margin-left:80px">WELCOME TO
+                BANANAGRAMS (ish)</div>
         </div>
+        <div class="right">
+            <button onclick="split()">Split</button>
+            <button onclick="peel()">Peel</button>
+            <div id="dump cell" style="background-color: rgb(255, 190, 69);
+            border: none;
+            color: white;
+            padding: 26px 38px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            opacity: 1;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 10%;">Dump (drag here)</div>
+        </div>
+    </div>
     </div>
     <div id="hand" style="height:40px" class="cell">
         <div id="div-holder" style="display:flex;flex-direction:row;">
@@ -150,15 +161,48 @@
         ------------------------------------------------------------------------------------------*/
         function peel() {
             const newDiv = document.createElement('div');
+            const uniqueId = generateUniqueId(); // Function to generate a unique ID
 
             newDiv.classList.add('drag-me');
             newDiv.style.visibility = "visible";
 
+            // Generate a random letter
+            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const randomIndex = Math.floor(Math.random() * letters.length);
+            const letter = letters.charAt(randomIndex);
+
+            // Set the letter as the text content of the new div
+            newDiv.textContent = letter;
+
             const handDiv = document.getElementById('hand');
             handDiv.appendChild(newDiv);
+
+            // Add necessary attributes and event listeners for draggable functionality
+            newDiv.setAttribute('draggable', 'true');
+            newDiv.setAttribute('data-draggable-id', uniqueId);
+
+            newDiv.addEventListener('dragstart', function (event) {
+                event.dataTransfer.setData('text/plain', this.getAttribute('data-draggable-id'));
+            });
+
+            newDiv.addEventListener('dragend', function (event) {
+                // Perform any necessary actions after dragging ends
+            });
         }
 
-        //doesn't become draggable... that is an issue.
+        function generateUniqueId() {
+            // Generate a random alphanumeric ID
+            const alphanumeric = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let uniqueId = '';
+
+            for (let i = 0; i < 10; i++) {
+                uniqueId += alphanumeric.charAt(Math.floor(Math.random() * alphanumeric.length));
+            }
+
+            return uniqueId;
+        }
+
+
 
         /*------------------------------------------------------------------------------------------
         Broken dump method
@@ -176,11 +220,12 @@
                     var newDiv = document.createElement("div");
                     newDiv.classList.add("drag-me");
                     newDiv.style.backgroundColor = "blue";
-                    newDiv.draggable = true;
+                    newDiv.setAttribute("draggable", "true");
                     hand.appendChild(newDiv);
                 }
             }
         });
+
 
 
     </script>
