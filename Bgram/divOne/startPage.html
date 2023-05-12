@@ -12,37 +12,47 @@
 </head>
 
 <body style="color:rgb(255, 190, 69)">
-
     <h1 class="header">Welcome to bananananananananana</h1>
-    <div class="startButtons">
-        <button style="margin-right:60px ;" class="button" onclick="singlePlayer()">One player game</button>
-        <button class="button" onclick="multPlayer()">Multi player game</button>
-        <!-- <img src="bananaspng.png"> -->
+    <div class="startButtons" style="height:50px">
+        <button style="margin-right:60px ;" class="button bounce" onclick="singlePlayer()">One player </button>
+        <button class="button bounce" onclick="multPlayer()">Multiplayer (coming soon)</button>
     </div>
-    <div id="text-form" style="display:flex;align-items: center;justify-content: center;visibility:hidden;">
-        <p>Enter your name Plebian.</p>
-        <input type="text" id="name" placeholder="Name" style="margin-top:60px;margin-right: 30px;">
-        <button onclick="addPlayer()" style="margin-top:60px;">Enter!</button>
+    <div>
+        <div id="text-form" style="display:flex;align-items: center;justify-content: center;visibility:hidden;">
+            <p>Enter your name Plebian.</p>
+            <input type="text" id="name" placeholder="Name" style="margin-top:60px;margin-right: 30px;">
+            <button onclick="addPlayer()" style="margin-top:60px;">Enter!</button>
+        </div>
     </div>
-    <button onclick="Instructions()" class="button instructionsButton">Instructions</button>
-
+    <div>
+        <button onclick="Instructions()" class="button instructionsButton">Instructions</button>
+    </div>
     <script>
+
+        /*
+        Getting the name entering button
+        */
         function singlePlayer() {
             var textInput = document.getElementById("text-form");
             textInput.style.visibility = "visible";
-            // window.location.href = "index.html";
         }
-
+        /*
+        Hiding the name entering button
+               */
         function multPlayer() {
             var textInput = document.getElementById("text-form");
             textInput.style.visibility = "hidden";
-            // window.location.href = "index.html";
         }
-
+        /*
+        changing the window
+               */
         function Instructions() {
             window.location.href = "instructions.html";
         }
 
+        /*
+        HOPEFULLY would add the name to the database
+        */
         function addPlayer() {
             let name = document.getElementById('name').value;
             fetch(`/addplayer?name=${name}`)
@@ -54,6 +64,7 @@
                 });
             window.location.href = "index.html";
         }
+
     </script>
 
 </body>

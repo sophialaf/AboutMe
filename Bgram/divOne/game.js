@@ -28,15 +28,11 @@ function assignRandomLetters() {
                 const tile = tiles[index];
                 console.log(`Assigning tile ${tile.letter} to div ${index}`);
                 div.textContent = tile.letter;
-
-                // Make the div visible
-                div.style.visibility = 'visible';
+                
             });
         })
         .catch(error => {
-            // Log the error message and display an alert to the user
             console.error(error);
-            alert('Failed to assign random letters to the "drag-me" divs. Please try again later.');
         });
 }
 
@@ -78,10 +74,11 @@ function dropHandler(event) {
     }
 }
 
-/*
+/*--------------------------------------------------------------------------------
 split
-*/
+--------------------------------------------------------------------------------*/
 function split(){
-    const tiles = document.getElementsByClassName("drag-me")
-    divHolder.style.display = "visible";
+    const tiles = document.querySelectorAll("drag-me")
+    tiles.style.display = "visible";
+
 }

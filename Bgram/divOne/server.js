@@ -22,13 +22,27 @@ tiles database junk
 -------------------------------------------------------------------------------------------------------*/
 
 app.get('/tiles', (req, res) => {
-    db.all('SELECT letter FROM Tiles WHERE grabbable = TRUE ORDER BY RANDOM() LIMIT 10', (err, tiles) => {
+    db.all('SELECT letter FROM Tiles WHERE grabbable = TRUE ORDER BY RANDOM() LIMIT 21', (err, tiles) => {
         if (err) {
             console.error(err.message); // Check for errors retrieving tiles from database
             res.status(500).send({ error: 'Failed to retrieve tiles' });
             return;
         }
         console.log(`Retrieved ${tiles.length} tiles from the database.`); // Log successful tile retrieval
+
+        // Update grabbable value for each tile
+        tiles.forEach((tile) => {
+            // Set grabbable to false for the current tile
+            tile.grabbable = false;
+
+            // Update the grabbable value in the database (assuming you have an update query)
+            db.run('UPDATE Tiles SET grabbable = false WHERE letter = ?', [tile.letter], (err) => {
+                if (err) {
+                    console.error(err.message); // Handle the error if the update fails
+                }
+            });
+        });
+
         res.send({ tiles });
     });
 });
@@ -48,7 +62,7 @@ const shuffleArray = (array) => {
 
 
 /*------------------------------------------------------------------------------------------------------
-player database junk 
+player database junk doesnt work lol
 -------------------------------------------------------------------------------------------------------*/
 
 app.get('/addplayer', function (req, res) {
@@ -65,14 +79,14 @@ app.get('/addplayer', function (req, res) {
 
 async function addPlayer(db, name) {
     return new Promise((resolve, reject) => {
-    db.run("INSERT INTO Users (name) VALUES (?)", [name], function (err) {
-        if (err) {
-            reject(err);
-        } else {
-            resolve();
-        }
+        db.run("INSERT INTO Users (name) VALUES (?)", [name], function (err) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
     });
-});
 }
 
 
