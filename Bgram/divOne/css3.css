@@ -4,15 +4,16 @@
     align-items: center;
 }
 
-body{
+body {
     font-family: 'Barriecito', cursive;
 }
 
-header{
+header {
     font-family: 'Barriecito', cursive;
 }
+
 .left {
-    display:flex;
+    display: flex;
     text-align: left;
 }
 
@@ -135,11 +136,12 @@ body {
     margin-top: 100px;
 }
 
-.instructionsButton {
-    position: absolute;
-    bottom: 80px;
-    right: 10%;
-}
+/* .instructionsButton {
+    /* position: absolute; */
+    /* bottom: 80px; */
+    /* right: 10%; 
+} 
+*/
 
 .tile {
     background-color: yellow;
@@ -288,10 +290,8 @@ body {
 .drag-me {
     height: 30px;
     width: 30px;
-    background-color:
-        rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
-    /* margin: 10px; */
     box-shadow: #898989 0 -4px 10px inset;
     visibility: hidden;
     text-align: center;
@@ -300,4 +300,27 @@ body {
 #hand {
     display: flex;
     flex-direction: row;
+}
+
+
+@-webkit-keyframes bounce {
+    0% {
+        transform: scale(1, 1) translate(0px, 0px);
+    }
+
+    30% {
+        transform: scale(1, 0.8) translate(0px, 10px);
+    }
+
+    75% {
+        transform: scale(1, 1.1) translate(0px, -25px);
+    }
+
+    100% {
+        transform: scale(1, 1) translate(0px, 0px);
+    }
+}
+
+.bounce {
+    -webkit-animation: bounce 0.75s infinite;
 }
