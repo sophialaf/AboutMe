@@ -42,7 +42,6 @@ app.get('/tiles', (req, res) => {
                 }
             });
         });
-
         res.send({ tiles });
     });
 });
@@ -50,17 +49,6 @@ app.get('/tiles', (req, res) => {
 app.get(['/*.html', '/*.css', '/*.js', '/*.jpg', '/*.jpeg'], (req, res) => {
     res.sendFile(path.join(__dirname, req.path));
 });
-
-// Utility function to shuffle an array in place
-const shuffleArray = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-};
-
-
 /*------------------------------------------------------------------------------------------------------
 player database junk doesnt work lol
 -------------------------------------------------------------------------------------------------------*/
@@ -89,6 +77,36 @@ async function addPlayer(db, name) {
     });
 }
 
+/*---------------------------------------------------------------------------------------------------------------------------
+resetting the database
+-----------------------------------------------------------------------------------------------------------------------------*/
+const setAllElementsToTrue = () => {
+    return new Promise((resolve, reject) => {
+        const query = 'UPDATE Tiles SET grabbable = TRUE';
+
+        db.run(query, function (error) {
+            if (error) {
+                reject(error);
+            } else {
+                resolve();
+            }
+        });
+    });
+};
+
+app.post('/update-elements', (req, res) => {
+    setAllElementsToTrue()
+        .then(() => {
+            res.sendStatus(200); // Send a success response
+        })
+        .catch((error) => {
+            console.error('Error setting all elements to true:', error);
+            res.sendStatus(500); // Send an error response
+        });
+});
+
+/*---------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------*/
 
 let server = app.listen(port, function () {
     console.log("App server is running on port", port);

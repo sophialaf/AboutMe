@@ -21,7 +21,7 @@
         <div id="text-form" style="display:flex;align-items: center;justify-content: center;visibility:hidden;">
             <p>Enter your name Plebian.</p>
             <input type="text" id="name" placeholder="Name" style="margin-top:60px;margin-right: 30px;">
-            <button onclick="addPlayer()" style="margin-top:60px;">Enter!</button>
+            <button id="newGame" onclick="addPlayer()" style="margin-top:60px;">Enter!</button>
         </div>
     </div>
     <div>
@@ -64,6 +64,27 @@
                 });
             window.location.href = "index.html";
         }
+
+        document.getElementById('newGame').addEventListener('click', function () {
+            // Make an HTTP request to your server endpoint
+            fetch('/update-elements', {
+                method: 'POST',
+            })
+                .then(function (response) {
+                    if (response.ok) {
+                        // Handle success response
+                        console.log('All elements updated successfully');
+                    } else {
+                        // Handle error response
+                        console.error('Failed to update all elements');
+                    }
+                })
+                .catch(function (error) {
+                    // Handle fetch error
+                    console.error('Error occurred during the fetch request:', error);
+                });
+        });
+
 
     </script>
 
