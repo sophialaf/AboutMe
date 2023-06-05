@@ -138,8 +138,8 @@ body {
 
 /* .instructionsButton {
     /* position: absolute; */
-    /* bottom: 80px; */
-    /* right: 10%; 
+/* bottom: 80px; */
+/* right: 10%; 
 } 
 */
 
@@ -323,4 +323,83 @@ body {
 
 .bounce {
     -webkit-animation: bounce 0.75s infinite;
+}
+
+
+@keyframes colorChange {
+    0% {
+        background-color: red;
+    }
+
+    10% {
+        background-color: rgb(255, 237, 71);
+    }
+
+    20% {
+        background-color: #c480ff;
+    }
+
+    30% {
+        background-color: chartreuse;
+    }
+
+    40% {
+        background-color: darkblue;
+    }
+
+    50% {
+        background-color: magenta;
+    }
+
+    60% {
+        background-color: seagreen;
+    }
+
+    70% {
+        background-color: springgreen;
+    }
+
+    80% {
+        background-color: tomato;
+    }
+
+    90% {
+        background-color: black;
+    }
+
+    100% {
+        background-color: violet;
+    }
+}
+
+@keyframes moveAndChange {
+    0% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
+
+    25% {
+        background-color: yellow;
+        left: 200px;
+        top: 0px;
+    }
+
+    50% {
+        background-color: blue;
+        left: 200px;
+        top: 200px;
+    }
+
+    75% {
+        background-color: green;
+        left: 0px;
+        top: 200px;
+    }
+
+    100% {
+        background-color: red;
+        left: 0px;
+        top: 0px;
+    }
 }

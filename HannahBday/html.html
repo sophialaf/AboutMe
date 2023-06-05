@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+
+    <title>HANNAH</title>
+    <script>
+        function showPopup() {
+            window.location.href = "slideshow.html";
+        }
+    </script>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Countdown to Hannah Day!</h1>
+        <div id="countdown"></div>
+    </div>
+    <div class="background-image-div"></div>
+    </div>
+
+    <button class="shape-button" onclick="showPopup()">See slideshow</button>
+
+    <script>
+        // Countdown to June 7th, modify the date if needed
+        var countDownDate = new Date("June 7, 2023 00:00:00").getTime();
+
+        var countdown = document.getElementById("countdown");
+
+        // Update the countdown every second
+        var countdownInterval = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Calculations for days, hours, minutes, and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the countdown
+            countdown.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is finished, display a message
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdown.innerHTML = "Countdown expired";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

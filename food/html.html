@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Food Orders</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <div class="header">
+        <h1>Authentic Cooking Pop-Up to support Refugees!</h1>
+        <div class="blurb">
+            <p>Order ahead and pick up Friday June 9th or donate now to the cause</p>
+        </div>
+    </div>
+    <div class="menu-header">
+        <ul class="menu-options">
+            <li><a href="#">Learn About the Chefs</a></li>
+            <li><a href="#">Hear Their Story</a></li>
+            <li><a href="#">Donate</a></li>
+            <li><a href="#">More Information</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="directions">
+            <p>
+                lorem ipsum
+            </p>
+        </div>
+
+
+        <div class="menu-container">
+            <div class="menu-item">
+                <img src="food1.jpg" alt="Food 1">
+                <div class="item-description">
+                    <h3>Food Item 1</h3>
+                    <p>Description of Food Item 1.</p>
+                </div>
+                <input type="number" class="item-quantity" value="0">
+            </div>
+
+            <div class="menu-item">
+                <img src="food2.jpg" alt="Food 2">
+                <div class="item-description">
+                    <h3>Food Item 2</h3>
+                    <p>Description of Food Item 2.</p>
+                </div>
+                <input type="number" class="item-quantity" value="0">
+            </div>
+
+            <!-- Add more menu items as needed -->
+
+            <div class="basket-container">
+                <h2>Your Basket</h2>
+                <div id="basket-items"></div>
+                <button onclick="submitOrder()">Submit Order</button>
+            </div>
+        </div>
+    </div>
+    <div class="paypal-button">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+            <input type="hidden" name="cmd" value="_donations">
+            <input type="hidden" name="business" value="your-paypal-email@example.com">
+            <!-- Replace with your PayPal email -->
+            <input type="hidden" name="item_name" value="Food Order">
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="hidden" name="amount" value="" id="total-amount">
+            <button type="submit">Pay with PayPal</button>
+        </form>
+    </div>
+
+    <script>
+        function submitOrder() {
+            var items = document.getElementsByClassName("menu-item");
+            var basketItems = document.getElementById("basket-items");
+            basketItems.innerHTML = "";
+
+            for (var i = 0; i < items.length; i++) {
+                var quantity = items[i].querySelector(".item-quantity").value;
+                if (quantity > 0) {
+                    var itemName = items[i].querySelector("h3").innerHTML;
+                    var itemTotal = quantity * 10; // Replace with actual item price
+                    var itemText = quantity + " x " + itemName + " - $" + itemTotal;
+                    var itemElement = document.createElement("p");
+                    itemElement.innerHTML = itemText;
+                    basketItems.appendChild(itemElement);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

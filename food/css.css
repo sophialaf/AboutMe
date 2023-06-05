@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.header {
+    background-color: #ffcd03;
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+}
+
+.menu-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(188, 0, 0);
+    color: white;
+
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.menu-item img {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.menu-item .item-description {
+    flex: 1;
+}
+
+.menu-item .item-quantity {
+    width: 50px;
+    text-align: center;
+}
+
+.basket-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+body {
+    background-color: rgb(58, 58, 251);
+}
+
+.menu-header {
+    background-color: #000f9a;
+    padding: 20px;
+    text-align: center;
+    margin:20px;
+}
+
+/* Style the menu options */
+.menu-options {
+    list-style-type: none;
+    padding-left: 100px;
+    margin: 0;
+    width:40%
+}
+
+.menu-options li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu-options li:last-child {
+    margin-right: 0;
+}
+
+.menu-options li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.menu-options li a:hover {
+    color: #000;
+}
+
+.directions{
+    background-color: white;
+    width:20%;
+}
+
+
+.container{
+    display:flex;
+    flex-direction: row;
+
+}
